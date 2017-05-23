@@ -15,6 +15,17 @@ Ayu (light) for Hyper
 
 3. Fully reload Hyper (`Cmd + Shift + R`)
 
+## Configuration
+You can decide whether to display the tab border or not using the following configuration:
+
+```javascript
+  config: {
+    ayu: {
+      noBorder: true // true will hide the border; false will display it.
+    }
+  }
+```
+
 ## Related
 
 - [Hyper](https://hyper.is/)

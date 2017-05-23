@@ -39,8 +39,8 @@ const WHITE = '#FFFFFF';
 const CURSOR_COLOR = YELLOW;
 const BORDER_COLOR = BACKGROUND;
 
+let TAB_BORDER_COLOR = '#E2E4E7';
 const TAB_TEXT_COLOR = FOREGROUND;
-const TAB_BORDER_COLOR = '#E2E4E7';
 const TAB_BORDER_ACTIVE_COLOR = '#FF6A00';
 
 const colors = {
@@ -68,6 +68,10 @@ exports.decorateConfig = (config) => {
 
   if (config.showWindowControls) {
     windowControlsCSS = '.list_2902 { margin-left: 0 !important; }';
+  }
+
+  if (config.ayu && config.ayu.noBorder) {
+    TAB_BORDER_COLOR = BACKGROUND;
   }
 
   return Object.assign({}, config, {
