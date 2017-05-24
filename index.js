@@ -65,13 +65,41 @@ const colors = {
 
 exports.decorateConfig = (config) => {
   let windowControlsCSS;
-
   if (config.showWindowControls) {
     windowControlsCSS = '.list_2902 { margin-left: 0 !important; }';
   }
 
-  if (config.ayu && config.ayu.noBorder) {
-    TAB_BORDER_COLOR = BACKGROUND;
+  const ayu = config.ayu || {};
+  const isWin = /^win/.test(process.platform);
+
+  // tab border customization
+  let tabBorderColor = TAB_BORDER_COLOR;
+  let headerBorderColor = TAB_BORDER_COLOR;
+  if (ayu.noBorder === true) {
+    tabBorderColor = BACKGROUND;
+    headerBorderColor = BACKGROUND;
+  } else {
+    if (ayu.showTabBorder === false) {
+      tabBorderColor = BACKGROUND;
+    }
+
+    // header border customization (windows only)
+    if (isWin && ayu.showHeaderBorder === false) {
+      headerBorderColor = BACKGROUND;
+    }
+  }
+
+  // header customization (windows only)
+  let headerForegroundColor = FOREGROUND;
+  let headerBackgroundColor = BACKGROUND;
+  if (isWin) {
+    if (ayu.headerBackgroundColor) {
+      headerBackgroundColor = ayu.headerBackgroundColor;
+    }
+
+    if (ayu.headerForegroundColor) {
+      headerForegroundColor = ayu.headerForegroundColor;
+    }
   }
 
   return Object.assign({}, config, {
@@ -80,21 +108,33 @@ exports.decorateConfig = (config) => {
     borderColor: BORDER_COLOR,
     cursorColor: CURSOR_COLOR,
     colors,
+    termCSS: `
+      .cursor-node[focus=true]:not([moving]) {
+        animation: blink 1s ease infinite;
+      }
+      @keyframes blink {
+        0%, 40% { opacity: 0 }
+        50%, 90% { opacity: 1 }
+      }
+    `,
     css: `
       ${config.css || ''}
-      .cursor-node {
-        background-color: ${MAGENTA} !important;
-        border-color: ${MAGENTA} !important;
-      }
       .hyper_main {
         border: none !important;
       }
-      .header_header {
-        border-bottom: 1px solid ${TAB_BORDER_COLOR};
-        background: ${BACKGROUND} !important;
-      }
       .splitpane_divider {
-        background-color: rgba(130, 128, 184, 0.5) !important;
+        background-color: ${tabBorderColor} !important;
+      }
+      .header_header, .header_windowHeader {
+        top: 0;
+        left: 0;
+        right: 0;
+        color: ${headerForegroundColor} !important;
+        background: ${headerBackgroundColor} !important;
+        border-bottom: 1px solid ${headerBorderColor} !important;
+      }
+      .header_shape {
+        color: ${headerForegroundColor} !important;
       }
       .tabs_title {
         color: ${TAB_TEXT_COLOR};
@@ -102,8 +142,11 @@ exports.decorateConfig = (config) => {
       }
       .tab_tab {
         border: 0;
-        border-left: 1px solid ${TAB_BORDER_COLOR} !important;
         background-color: ${BACKGROUND};
+        border-bottom: 1px solid ${tabBorderColor} !important;
+      }
+      .tab_tab:not(:first-child) {
+        border-left: 1px solid ${tabBorderColor} !important;
       }
       .tab_text {
         color: ${TAB_TEXT_COLOR};
@@ -125,5 +168,5 @@ exports.decorateConfig = (config) => {
       }
       ${windowControlsCSS}
     `
-  })
+  });
 };
