@@ -73,18 +73,25 @@ exports.decorateConfig = (config) => {
   const isWin = /^win/.test(process.platform);
 
   // tab border customization
+  let tabBorder = '';
+  let tabNoFirstChild = '';
   let tabBorderColor = TAB_BORDER_COLOR;
   let headerBorderColor = TAB_BORDER_COLOR;
   if (ayu.noBorder === true) {
     tabBorderColor = BACKGROUND;
     headerBorderColor = BACKGROUND;
-  } else {
-    if (ayu.showTabBorder === false) {
-      tabBorderColor = BACKGROUND;
+  } else if (isWin) {
+    if (ayu.showHeaderBorder === false) {
+      headerBorderColor = BACKGROUND;
     }
 
-    // header border customization (windows only)
-    if (isWin && ayu.showHeaderBorder === false) {
+    tabBorder = `border-bottom: 1px solid ${tabBorderColor} !important;`;
+    tabNoFirstChild = ':not(:first-child)';
+  }
+
+  if (ayu.showTabBorder === false) {
+    tabBorderColor = BACKGROUND;
+    if (!isWin) {
       headerBorderColor = BACKGROUND;
     }
   }
@@ -143,9 +150,9 @@ exports.decorateConfig = (config) => {
       .tab_tab {
         border: 0;
         background-color: ${BACKGROUND};
-        border-bottom: 1px solid ${tabBorderColor} !important;
+        ${tabBorder}
       }
-      .tab_tab:not(:first-child) {
+      .tab_tab${tabNoFirstChild} {
         border-left: 1px solid ${tabBorderColor} !important;
       }
       .tab_text {
