@@ -82,9 +82,8 @@ exports.decorateConfig = (config) => {
   if (isWin) {
 	  tabBorder = `border-bottom: 1px solid ${tabBorderColor} !important;`;
     tabNoFirstChild = ':not(:first-child)';
-  } else if (ayu.showTabBorder === false) {
-	  tabBorderColor = BACKGROUND;
-    headerBorderColor = BACKGROUND;
+  } else {
+	  headerBorderColor = tabBorderColor;
   }
 
   // header customization (windows only)
