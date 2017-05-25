@@ -48,12 +48,12 @@ You can decide whether to display the tab border or not using the following conf
       // Windows only
       // controls the background color of the header
       // e.g #FF00DD, rgb(254, 254, 254), red
-      headerBackgroundColor: string,
+      headerBackgroundColor: 'string',
 
       // Windows only
       // controls the foreground color of the header (title and windows controls)
       // e.g #FF00DD, rgb(254, 254, 254), red
-      headerForegroundColor: string
+      headerForegroundColor: 'string'
     }
   }
 ```
