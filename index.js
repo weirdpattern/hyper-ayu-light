@@ -75,38 +75,24 @@ exports.decorateConfig = (config) => {
   // tab border customization
   let tabBorder = '';
   let tabNoFirstChild = '';
-  let tabBorderColor = TAB_BORDER_COLOR;
-  let headerBorderColor = TAB_BORDER_COLOR;
-  if (ayu.noBorder === true) {
-    tabBorderColor = BACKGROUND;
-    headerBorderColor = BACKGROUND;
-  } else if (isWin) {
-    if (ayu.showHeaderBorder === false) {
-      headerBorderColor = BACKGROUND;
-    }
+  let headerBorderColor = ayu.noBorder === true || ayu.showHeaderBorder === false ? BACKGROUND : TAB_BORDER_COLOR;
+  let tabBorderColor = ayu.noBorder === true || ayu.showTabBorder === false ? BACKGROUND : TAB_BORDER_COLOR;
 
-    tabBorder = `border-bottom: 1px solid ${tabBorderColor} !important;`;
+  // environment specifics
+  if (isWin) {
+	  tabBorder = `border-bottom: 1px solid ${tabBorderColor} !important;`;
     tabNoFirstChild = ':not(:first-child)';
-  }
-
-  if (ayu.showTabBorder === false) {
-    tabBorderColor = BACKGROUND;
-    if (!isWin) {
-      headerBorderColor = BACKGROUND;
-    }
+  } else if (ayu.showTabBorder === false) {
+	  tabBorderColor = BACKGROUND;
+    headerBorderColor = BACKGROUND;
   }
 
   // header customization (windows only)
   let headerForegroundColor = FOREGROUND;
   let headerBackgroundColor = BACKGROUND;
   if (isWin) {
-    if (ayu.headerBackgroundColor) {
-      headerBackgroundColor = ayu.headerBackgroundColor;
-    }
-
-    if (ayu.headerForegroundColor) {
-      headerForegroundColor = ayu.headerForegroundColor;
-    }
+	  headerBackgroundColor = ayu.headerBackgroundColor || headerBackgroundColor;
+    headerForegroundColor = ayu.headerForegroundColor || headerForegroundColor;
   }
 
   return Object.assign({}, config, {
