@@ -28,10 +28,17 @@ const BACKGROUND = '#F5F5F5';
 const FOREGROUND = '#5C6773';
 
 const RED = '#ff3333';
+const LIGHT_RED = '#FF8080';
 const GREEN = '#86B300';
+const LIGHT_GREEN = '#ACE600';
 const YELLOW = '#F29718';
+const LIGHT_YELLOW = '#F6B860';
+const CYAN = '#4DBF99';
+const LIGHT_CYAN = '#85D3B9';
 const BLUE = '#41A6D9';
+const LIGHT_BLUE = '#81C4E6';
 const MAGENTA = '#A37ACC';
+const LIGHT_MAGENTA = '#C9B1E1';
 const LIGHT_GRAY = '#D9D8D7';
 const DARK_GRAY = '#828C99';
 const WHITE = '#FFFFFF';
@@ -50,15 +57,15 @@ const colors = {
   yellow: YELLOW,
   blue: BLUE,
   magenta: MAGENTA,
-  cyan: BLUE,
+  cyan: CYAN,
   white: LIGHT_GRAY,
   lightBlack: DARK_GRAY,
-  lightRed: RED,
-  lightGreen: GREEN,
-  lightYellow: YELLOW,
-  lightBlue: BLUE,
-  lightMagenta: MAGENTA,
-  lightCyan: BLUE,
+  lightRed: LIGHT_RED,
+  lightGreen: LIGHT_GREEN,
+  lightYellow: LIGHT_YELLOW,
+  lightBlue: LIGHT_BLUE,
+  lightMagenta: LIGHT_MAGENTA,
+  lightCyan: LIGHT_CYAN,
   colorCubes: WHITE,
   grayscale: FOREGROUND
 };
