@@ -71,7 +71,7 @@ const colors = {
 };
 
 exports.decorateConfig = (config) => {
-  let windowControlsCSS;
+  let windowControlsCSS = '';
   if (config.showWindowControls) {
     windowControlsCSS = '.list_2902 { margin-left: 0 !important; }';
   }
