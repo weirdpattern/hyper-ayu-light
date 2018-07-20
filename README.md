@@ -1,35 +1,38 @@
 # Ayu Light Hyper Theme
 Ayu (light) for Hyper
 
-macOS (no borders)
-![Ayu Light Hyper Theme - No border](https://cloud.githubusercontent.com/assets/19519411/26436362/8ca8aea8-40db-11e7-9db8-e14d465c68af.png)
+macOS
+![Ayu Light Hyper Theme - macOS]()
 
-macOS (border)
-![Ayu Light Hyper Theme - Border](https://cloud.githubusercontent.com/assets/19519411/26339179/a55b2bd8-3f4b-11e7-9291-5d26b6375d93.png)
-
-Windows (no borders)  
-![Ayu Light Hyper Theme - No borders](https://cloud.githubusercontent.com/assets/19519411/26419401/405fc262-4085-11e7-9c45-d3ea21fc14c3.png)
-
-Windows (header border)
-![Ayu Light Hyper Theme - Header border](https://cloud.githubusercontent.com/assets/19519411/26419403/40b8a4b8-4085-11e7-8e89-d4b280a49878.png)
-
-Windows (custom header)  
-![Ayu Light Hyper Theme - Custom header](https://cloud.githubusercontent.com/assets/19519411/26419400/404d93d0-4085-11e7-960f-288a98af3837.png)
+Windows
+![Ayu Light Hyper Theme - Windows](https://user-images.githubusercontent.com/19519411/43025177-60da658a-8c36-11e8-985c-2a0274f503b1.PNG)
 
 ## Installation
-1. Open Hyper's preferences with `Cmd +`, (or manually at `~/.hyper.js`).
-2. Update your list of plugins to include `hyper-ayu-light`, like this:
+
+### Hyper plugin manager
+
+Use the following command to install the theme.
+
+```bash
+$ hyper install hyper-ayu-light
+```
+
+### Manual installation
+
+1. Open Hyper preferences with `Cmd +` or using the menu `File/Edit/Preferences`.  
+2. Update your list of plugins to include `hyper-ayu-light`, like this:  
 
 ```javascript
   plugins: [
-    'hyper-ayu-light'
+    "hyper-ayu-light"
   ]
 ```
 
 3. Fully reload Hyper (`Cmd + Shift + R`)
 
 ## Configuration
-You can decide whether to display the tab border or not using the following configuration:
+Ayu Light Hyper theme is meant to be used as is, but if you feel like you want to 
+customize it even further you can use the following configurations.
 
 ```javascript
   config: {
