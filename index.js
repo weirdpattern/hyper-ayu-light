@@ -33,7 +33,7 @@ const YELLOW = '#F29718';
 const CYAN = '#55B4d4';
 const BLUE = '#399EE6';
 const MAGENTA = '#A37ACC';
-const DARK_GRAY = '#B3B2B1';
+const GRAY = '#B3B2B1';
 const WHITE = '#FFFFFF';
 
 const CURSOR_COLOR = YELLOW;
@@ -51,8 +51,8 @@ const colors = {
   blue: BLUE,
   magenta: MAGENTA,
   cyan: CYAN,
-  white: DARK_GRAY,
-  lightBlack: DARK_GRAY,
+  white: GRAY,
+  lightBlack: GRAY,
   lightRed: RED,
   lightGreen: GREEN,
   lightYellow: YELLOW,
