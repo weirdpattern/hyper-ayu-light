@@ -2,7 +2,7 @@
 Ayu (light) for Hyper
 
 macOS
-![Ayu Light Hyper Theme - macOS]()
+![Ayu Light Hyper Theme - macOS](https://user-images.githubusercontent.com/19519411/43032293-f5b6edb2-8c78-11e8-9eb7-caaa958cf2ac.png)
 
 Windows
 ![Ayu Light Hyper Theme - Windows](https://user-images.githubusercontent.com/19519411/43025177-60da658a-8c36-11e8-985c-2a0274f503b1.PNG)
